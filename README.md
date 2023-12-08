@@ -8,3 +8,7 @@
 ## Nutrition View Form
 * Displays how many calories, sodium, and sugar the user has consumed for the day
 * Compares consumed total with recommended total and gives a percentage
+
+## Weekly View Form
+* Displays how many calories, sodium, and sugar the user has consumed on average for the past 7 days
+* Allows users to clear all data
