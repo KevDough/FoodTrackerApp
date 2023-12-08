@@ -1,3 +1,4 @@
+using FoodTrackerApp;
 using System.Windows.Forms;
 
 using static System.Windows.Forms.DataFormats;
@@ -52,12 +53,10 @@ namespace FoodTracker
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+           
             AddFood addFood = new AddFood();
             addFood.Show();
-            
-          
-            
+ 
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
@@ -79,6 +78,12 @@ namespace FoodTracker
         private void button1_Click_2(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            WeekView weekView = new WeekView();
+            weekView.Show();
         }
     }
 }

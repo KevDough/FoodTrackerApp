@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodTrackerApp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -129,6 +130,13 @@ namespace FoodTracker
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            WeekView weekView = new WeekView();
+            weekView.Show();
+            this.Close();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FoodTrackerApp;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -265,6 +266,71 @@ namespace FoodTracker
             label7.Text = "";
             label8.Text = "";
 
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            WeekView weekView = new WeekView();
+            weekView.Show();
+            this.Close();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+
+            StreamReader sr = new StreamReader(Path.Combine(parentOfStartupPath, "calorieCount.txt"));
+
+            string line = sr.ReadLine();
+            double x = 0;
+            while (line != null)
+            {
+                x += Int32.Parse(line);
+                line = sr.ReadLine();
+            }
+            sr.Close();
+            using (StreamWriter writetext = new StreamWriter(Path.Combine(parentOfStartupPath, "weeklyCalorie.txt"), true))
+            {
+                writetext.WriteLine(x);
+            }
+
+
+            sr = new StreamReader(Path.Combine(parentOfStartupPath, "sugarCount.txt"));
+
+            line = sr.ReadLine();
+            x = 0;
+            while (line != null)
+            {
+                x += Int32.Parse(line);
+                line = sr.ReadLine();
+            }
+            sr.Close();
+            using (StreamWriter writetext = new StreamWriter(Path.Combine(parentOfStartupPath, "weeklySugar.txt"), true))
+            {
+                writetext.WriteLine(x);
+            }
+
+            sr = new StreamReader(Path.Combine(parentOfStartupPath, "sodiumCount.txt"));
+
+            line = sr.ReadLine();
+            x = 0;
+            while (line != null)
+            {
+                x += Int32.Parse(line);
+                line = sr.ReadLine();
+            }
+            sr.Close();
+            using (StreamWriter writetext = new StreamWriter(Path.Combine(parentOfStartupPath, "weeklySodium.txt"), true))
+            {
+                writetext.WriteLine(x);
+            }
+            label5.Text = "";
+            label6.Text = "";
+            label7.Text = "";
+            label8.Text = "";
+            File.WriteAllText(Path.Combine(parentOfStartupPath, "sodiumCount.txt"), string.Empty);
+            File.WriteAllText(Path.Combine(parentOfStartupPath, "calorieCount.txt"), string.Empty);
+            File.WriteAllText(Path.Combine(parentOfStartupPath, "foodName.txt"), string.Empty);
+            File.WriteAllText(Path.Combine(parentOfStartupPath, "sugarCount.txt"), string.Empty);
         }
     }
 }
