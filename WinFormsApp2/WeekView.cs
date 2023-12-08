@@ -78,7 +78,8 @@ namespace FoodTrackerApp
 
 
             }
-            label7.Text = x/calorieInts.Count + " calories on average";
+            if(calorieInts.Count != 0) label7.Text = x/calorieInts.Count + " calories on average";
+            else label7.Text = "0 calories on average";
 
             List<string> sugarFile = File.ReadLines(Path.Combine(parentOfStartupPath, "weeklySugar.txt")).Reverse().Take(7).Reverse().ToList();
             List<int> sugarInts = sugarFile
@@ -97,8 +98,8 @@ namespace FoodTrackerApp
 
 
             }
-            label8.Text = x / sugarInts.Count + "g sugar on average";
-
+            if (sugarInts.Count != 0) label8.Text = x / sugarInts.Count + "g sugar on average";
+            else label8.Text = "0g sugar on average";
 
             List<string> sodiumFile = File.ReadLines(Path.Combine(parentOfStartupPath, "weeklySodium.txt")).Reverse().Take(7).Reverse().ToList();
             List<int> sodiumInts = sodiumFile
@@ -115,8 +116,8 @@ namespace FoodTrackerApp
 
 
             }
-            label9.Text = x / sodiumInts.Count + "mg sodium on average";
-
+            if (sodiumInts.Count != 0) label9.Text = x / sodiumInts.Count + "mg sodium on average";
+            else label9.Text = "0mg sodium on average";
         }
 
         private void label7_Click(object sender, EventArgs e)
